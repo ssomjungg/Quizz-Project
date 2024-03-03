@@ -7,6 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Exam } from '../../models/exam';
 import { fullDataExam } from '../../models/full-Data-Exam';
 import { ConfirmDialogComponent } from '../../../../core/shared/components/confirm-dialog/confirm-dialog.component';
+import { SnackbarService } from '../../../../core/shared/components/services/snackbar.service';
 
 @Component({
   selector: 'app-exam',
@@ -20,7 +21,8 @@ export class ExamComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private service: ExamService,
     protected formBuilder: FormBuilder,
-    protected dialog: MatDialog
+    protected dialog: MatDialog,
+    private snackbarService: SnackbarService,
   ) {}
 
   examForms: FormGroup[] = [];
@@ -128,9 +130,14 @@ export class ExamComponent implements OnInit, OnDestroy {
             title: titleArr,
           };
           this.service.setExam(formData);
+          this.openSnackBar();
           this.router.navigate(['/home'], {relativeTo: this.route});
         }
       });
+  }
+
+  openSnackBar() {
+    this.snackbarService.open('success', "S");
   }
 
   onCheck() {

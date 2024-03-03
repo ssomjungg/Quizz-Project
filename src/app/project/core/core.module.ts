@@ -17,11 +17,13 @@ import { CommonSharedModule } from './shared/modules/common-shared/common-shared
 import { SharedMaterialModule } from './shared/modules/material/shared-material.module';
 import { ComponentsModule } from './shared/modules/components/components.module';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { SnackbarComponent } from './shared/components/snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SnackbarComponent
   ],
   imports: [
     CommonModule,

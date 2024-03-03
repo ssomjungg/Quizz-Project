@@ -1,4 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'assets/styles/custom_theme.scss';
+@import 'assets/styles/material-customs/bootstrap-custom.scss';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@mixin styleSnackbar($color) {
+  background-color: $color;
+  text-align: center;
+  .mat-simple-snackbar {
+    font-size: 1.3em;
+    color: white;
+
+    justify-content: center;
+    .mat-simple-snackbar-action {
+      color: white;
+    }
+  }
+}
+.success-snack {
+  @include styleSnackbar(#00cc99);
+}
+
+.danger-snack {
+  // background-color: #ff5050;#ff5050
+  @include styleSnackbar(#ff5050);
+  white-space: pre-line;
+}
+
+.warn-snack {
+  @include styleSnackbar(#f4902d);
+
+  // background-color: #f4902d;
+}

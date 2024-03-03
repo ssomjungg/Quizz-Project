@@ -7,6 +7,9 @@ import { ExamService } from '../../services/exam.service';
 import { Exam } from '../../models/exam';
 import { ConfirmDialogComponent } from '../../../../core/shared/components/confirm-dialog/confirm-dialog.component';
 import { fullDataExam } from '../../models/full-Data-Exam';
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../../../core/shared/components/snackbar/snackbar.component';
+import { SnackbarService } from '../../../../core/shared/components/services/snackbar.service';
 
 @Component({
   selector: 'app-exam',
@@ -20,7 +23,9 @@ export class ExamComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private service: ExamService,
     protected formBuilder: FormBuilder,
-    protected dialog: MatDialog
+    protected dialog: MatDialog,
+    private snackBar: MatSnackBar,
+    private snackbarService: SnackbarService,
   ) {}
 
   examForms: FormGroup[] = [];
@@ -28,11 +33,13 @@ export class ExamComponent implements OnInit, OnDestroy {
   answer: FormGroup[] = [];
   currentIndex: number = 0;
   name!: string;
+  //for snackbar
+  durationInSeconds = 5;
 
   ngOnInit(): void {
     this.name = this.service.getName();
     if (!this.name) {
-      // this.router.navigate(['/home'], {relativeTo: this.route});
+      this.router.navigate(['/home'], {relativeTo: this.route});
     }
     this.service
       .getExamData()
@@ -129,9 +136,14 @@ export class ExamComponent implements OnInit, OnDestroy {
             title: titleArr,
           };
           this.service.setExam(formData);
+          this.openSnackBar();
           this.router.navigate(['/home'], {relativeTo: this.route});
         }
       });
+  }
+
+  openSnackBar() {
+    this.snackbarService.open('success', "S");
   }
 
   onCheck() {

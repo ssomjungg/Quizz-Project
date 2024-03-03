@@ -39,14 +39,15 @@ export class HomeComponent implements OnInit, OnDestroy  {
       this.service.setName(name);
       this.service.setDate(new Date);
       this.router.navigate(['/quiz/exam-dev'], {relativeTo: this.route});
-    }
+    } else this.form.markAllAsTouched();
   }
 
   gotoTest(name: any) {
     if (this.form.valid) {
       this.service.setName(name);
+      this.service.setDate(new Date);
       this.router.navigate(['/quiz/exam-tester'], {relativeTo: this.route});
-    }
+    } else this.form.markAllAsTouched();
   }
   ngOnDestroy(): void {
     this.destroy$.next('');
