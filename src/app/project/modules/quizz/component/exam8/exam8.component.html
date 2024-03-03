@@ -5,14 +5,14 @@
       {{form.get('title')?.value}}
     </div>
   </div>
-  <div class="row mt-3 mb-3">
+  <div class="row mt-5 mb-5">
     <div class="col-4">
-      <img src="{{form.get('markdown')?.value}}" alt="image info" style="width: 600px; height: 600px;">
+      <img src="{{form.get('markdown')?.value}}" alt="image info" style="width: 800px; height: 400px;">
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <ngx-monaco-editor [options]="editorOptions" formControlName="answer"></ngx-monaco-editor>
+      <ngx-monaco-editor class="editor" [options]="editorOptions" formControlName="answer"></ngx-monaco-editor>
     </div>
   </div>
 </div>

@@ -5,6 +5,8 @@ import { ExamService } from '../../services/exam.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Exam } from '../../models/exam';
+import { fullDataExam } from '../../models/full-Data-Exam';
+import { ConfirmDialogComponent } from '../../../../core/shared/components/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-exam',
@@ -23,13 +25,13 @@ export class ExamComponent implements OnInit, OnDestroy {
 
   examForms: FormGroup[] = [];
   exam: FormGroup[] = [];
-  answerExam: FormGroup[] = [];
+  answer: FormGroup[] = [];
   currentIndex: number = 0;
   name!: string;
   ngOnInit(): void {
     this.name = this.service.getName();
     if (!this.name) {
-      // this.router.navigate(['/home'], {relativeTo: this.route})
+      this.router.navigate(['/home'], {relativeTo: this.route});
     }
     this.service
       .getExamData()
@@ -48,22 +50,24 @@ export class ExamComponent implements OnInit, OnDestroy {
   }
 
   onBack() {
+    if (this.currentIndex === 0) {
+      this.router.navigate(['/home'], { relativeTo: this.route });
+    }
     if (this.currentIndex > 0) {
       this.currentIndex--;
     }
   }
 
   onNext() {
-    if (this.currentIndex < 9) {
+    if (this.currentIndex < 8) {
       this.currentIndex++;
     }
-    let form = this.examForms[this.currentIndex].value;
-    console.log('index', this.currentIndex)
+    let form = this.examForms[this.currentIndex]?.value;
     let answer = form?.answer;
     if (!answer) {
       let index = this.currentIndex;
       index--;
-      let preForm = this.exam[index].value;
+      let preForm = this.exam[index]?.value;
       let preAnswer = preForm?.answer;
       if (preAnswer) {
         this.examForms = this.exam;
@@ -72,21 +76,70 @@ export class ExamComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    console.log(
-      'All exam forms:',
-      this.examForms.map((form) => form.value)
-    );
+    let codeArr: string[] = [];
+    let languageArr: string[] = [];
+    let markdownArr: string[] = [];
+    let mermaidArr: string[] = [];
+    let scriptArr: string[] = [];
+    let titleArr: string[] = [];
+    let exams: Exam[] = [];
+    for (let i = 0; i < 8; i++) {
+      const examData = this.examForms[i].value;
+      const exam: Exam = {
+        no: examData.no,
+        questionType: examData.questionType,
+        script: examData.script,
+        title: examData.title,
+        answer: examData.answer,
+        language: examData.language,
+        mermaid: examData.mermaid,
+        code: examData.code,
+        markdown: examData.markdown,
+      };
+      exams.push(exam);
+      codeArr.push(examData?.code);
+      languageArr.push(examData?.language);
+      markdownArr.push(examData?.markdown);
+      mermaidArr.push(examData?.mermaid);
+      if (examData?.questionType) {
+        scriptArr.push(this.name);
+      } else {
+        scriptArr.push('');
+      }
+      titleArr.push(examData?.title);
+    }
+    this.dialog
+      .open(ConfirmDialogComponent, { data: { description: 'ยืนยันคำตอบ' } })
+      .afterClosed()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((confirm) => {
+        if (confirm) {
+          let candidateId = this.name;
+          const formData: fullDataExam = {
+            answer: exams,
+            candidateId: candidateId,
+            code: codeArr,
+            language: languageArr,
+            markdown: markdownArr,
+            mermaid: mermaidArr,
+            questionNumber: 9,
+            script: scriptArr,
+            startDate: this.service.getDate(),
+            title: titleArr,
+          };
+          this.service.setExam(formData);
+          this.router.navigate(['/home'], {relativeTo: this.route});
+        }
+      });
   }
 
-  onCheck() {}
+  onCheck() {
+    this.currentIndex = 0;
+  }
 
   onFormChange(form: any) {
-    // this.examForms = this.examForms.slice(); // คัดลอกอาร์เรย์
-    // this.examForms[this.currentIndex] = form;
-    this.exam = {...this.examForms}
-    console.log('exam', this.exam);
+    this.exam = { ...this.examForms };
     this.exam[this.currentIndex] = form;
-    console.log('Form changed:', this.exam);
   }
 
   examForm(exam: Exam) {

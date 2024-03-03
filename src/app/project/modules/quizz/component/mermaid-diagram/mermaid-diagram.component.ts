@@ -16,7 +16,6 @@ export class MermaidDiagramComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log('mermaid', this.mermaidCode);
   }
 
 }

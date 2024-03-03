@@ -13,7 +13,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'quizz',
+    path: 'quiz',
     loadChildren: () =>
       import('../modules/quizz/quizz.module').then(
         (m) => m.QuizzModule

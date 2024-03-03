@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Exam } from '../../models/exam';
 
@@ -12,13 +12,19 @@ export class Exam7Component implements OnInit {
 
   @Input() examForm!: FormGroup;
   form!: FormGroup;
+  //output
+  @Output() formValueChanged = new EventEmitter<FormGroup>();
+  //editor
+  editorOptions = {theme: 'vs-dark', language: 'typescript'};
   ngOnInit(): void {
-    console.log('exam1', this.examForm?.value);
     this.exam7Form(this.examForm?.value);
-    console.log('exam1', this.examForm?.get('mermaid')?.value);
   }
 
-  editorOptions = {theme: 'vs-dark', language: 'typescript'};
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['examForm'] && changes['examForm'].currentValue) {
+      this.exam7Form(this.examForm.value);
+    }
+  }
 
   exam7Form(exam: Exam) {
     this.form = this.formBuilder.group({
@@ -31,6 +37,9 @@ export class Exam7Component implements OnInit {
       mermaid: [exam?.mermaid],
       code: [exam?.code],
       markdown: [exam?.markdown],
+    });
+    this.form.valueChanges.subscribe(value => {
+      this.formValueChanged.emit(this.form);
     });
   }
 

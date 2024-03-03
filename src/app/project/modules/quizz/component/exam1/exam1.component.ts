@@ -22,7 +22,6 @@ export class Exam1Component implements OnInit, OnChanges  {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['examForm'] && changes['examForm'].currentValue) {
-      console.log('exam1', this.examForm.value);
       this.exam1Form(this.examForm.value);
     }
   }
@@ -43,5 +42,4 @@ export class Exam1Component implements OnInit, OnChanges  {
       this.formValueChanged.emit(this.form);
     });
   }
-
 }

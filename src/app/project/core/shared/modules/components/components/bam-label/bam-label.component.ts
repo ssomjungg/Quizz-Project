@@ -9,6 +9,5 @@ export class BamLabelComponent {
   @Input() require = false;
   constructor() {}
   ngOnInit(): void {
-    // console.log(this.require);
   }
 }

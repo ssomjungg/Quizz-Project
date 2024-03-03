@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { CoreService } from '../../core.service';
+import { fullDataExam } from '../../../modules/quizz/models/full-Data-Exam';
 
 @Component({
   selector: 'app-home',
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy  {
   }
 
   form!: FormGroup;
-
+  data!: fullDataExam;
   ngOnInit(): void {
     this.personalForm();
   }
@@ -36,14 +37,15 @@ export class HomeComponent implements OnInit, OnDestroy  {
   gotoDev(name: any) {
     if (this.form.valid) {
       this.service.setName(name);
-      this.router.navigate(['/quizz/exam'], {relativeTo: this.route});
+      this.service.setDate(new Date);
+      this.router.navigate(['/quiz/exam'], {relativeTo: this.route});
     }
   }
 
   gotoTest(name: any) {
     if (this.form.valid) {
       this.service.setName(name);
-      this.router.navigate(['/quizz/exam'], {relativeTo: this.route});
+      this.router.navigate(['/quiz/exam'], {relativeTo: this.route});
     }
   }
   ngOnDestroy(): void {

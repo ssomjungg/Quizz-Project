@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-end mt-3">
+<div class="d-flex justify-content-end mt-5 me-5">
   <button
     (click)="onBack()"
     class="mb-3 me-3"
@@ -7,39 +7,88 @@
   >
     <span>Back</span>
   </button>
-  <button (click)="onNext()" class="mb-3" mat-raised-button color="primary">
+  <button
+    *ngIf="currentIndex < 8"
+    (click)="onNext()"
+    class="mb-3"
+    mat-raised-button
+    color="primary"
+  >
+    <span>Next</span>
+  </button>
+  <button
+    *ngIf="currentIndex === 8"
+    (click)="onNext()"
+    class="mb-3"
+    mat-raised-button
+    color="primary"
+    disabled
+  >
     <span>Next</span>
   </button>
 </div>
-<mat-card>
-  <app-exam1 *ngIf="currentIndex === 0" [examForm]="examForms[0]" (formValueChanged)="onFormChange($event)"></app-exam1>
-  <!-- <app-exam1 *ngIf="currentIndex === 0" [examForm]="examForms[0]" (formChange)="onFormChange($event)"></app-exam1> -->
-  <app-exam2 *ngIf="currentIndex === 1" [examForm]="examForms[1]" (formValueChanged)="onFormChange($event)"></app-exam2>
-  <app-exam3 *ngIf="currentIndex === 2" [examForm]="examForms[2]" (formValueChanged)="onFormChange($event)"></app-exam3>
-  <app-exam4 *ngIf="currentIndex === 3" [examForm]="examForms[3]"></app-exam4>
-  <app-exam5 *ngIf="currentIndex === 4" [examForm]="examForms[4]"></app-exam5>
-  <app-exam6 *ngIf="currentIndex === 5" [examForm]="examForms[5]"></app-exam6>
-  <app-exam7 *ngIf="currentIndex === 6" [examForm]="examForms[6]"></app-exam7>
-  <app-exam8 *ngIf="currentIndex === 7" [examForm]="examForms[7]"></app-exam8>
+<mat-card class="mt-3 mb-5 ms-5 me-5">
+  <div class="mt-3 mb-5 ms-3 me-3">
+    <app-exam1
+      *ngIf="currentIndex === 0"
+      [examForm]="examForms[0]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam1>
+    <app-exam2
+      *ngIf="currentIndex === 1"
+      [examForm]="examForms[1]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam2>
+    <app-exam3
+      *ngIf="currentIndex === 2"
+      [examForm]="examForms[2]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam3>
+    <app-exam4
+      *ngIf="currentIndex === 3"
+      [examForm]="examForms[3]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam4>
+    <app-exam5
+      *ngIf="currentIndex === 4"
+      [examForm]="examForms[4]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam5>
+    <app-exam6
+      *ngIf="currentIndex === 5"
+      [examForm]="examForms[5]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam6>
+    <app-exam7
+      *ngIf="currentIndex === 6"
+      [examForm]="examForms[6]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam7>
+    <app-exam8
+      *ngIf="currentIndex === 7"
+      [examForm]="examForms[7]"
+      (formValueChanged)="onFormChange($event)"
+    ></app-exam8>
+  </div>
   <div *ngIf="currentIndex === 8">
-    <div class="row ms-3 mt-3">
+    <div class="row ms-5 mt-3">
       <div class="col">
         <span class="header">FINISH</span>
       </div>
     </div>
-    <div class="row">
+    <div class="row ms-5 mt-4">
       <div class="col">
-        <span class=""
+        <span class="detail"
           >“You can’t stop the future. You can’t rewind the past.The only way to
           learn the secret s to press play.”</span
         >
       </div>
     </div>
-    <div class="row mt-3 mb-5">
+    <div class="row ms-5 mt-5 mb-5">
       <div class="col">
         <button
           (click)="onSubmit()"
-          class="mb-3 me-3"
+          class="mb-3 me-3 button"
           mat-raised-button
           color="primary"
         >
@@ -47,9 +96,8 @@
         </button>
         <button
           (click)="onCheck()"
-          class="mb-3"
+          class="mb-3 button"
           mat-raised-button
-          color="primary"
         >
           <span>Re-check</span>
         </button>

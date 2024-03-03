@@ -10,13 +10,9 @@
       <img src="assets/svg/mermaid-graph.svg" alt="Mermaid Diagram" style="width: 400px; height: 400px;">
     </div>
   </div>
-  <!-- <div class="row">
-    <div class="col"> -->
       <pre>
-        <code>{{ form.get('code')?.value }}</code>
+        <code class="code">{{ form.get('code')?.value }}</code>
       </pre>
-    <!-- </div>
-  </div> -->
   <div class="row">
     <div class="col">
       <markdown [data]="form.get('markdown')?.value"></markdown>
@@ -24,7 +20,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <ngx-monaco-editor [options]="editorOptions" formControlName="answer"></ngx-monaco-editor>
+      <ngx-monaco-editor class="editor" [options]="editorOptions" formControlName="answer"></ngx-monaco-editor>
     </div>
   </div>
 </div>

@@ -16,6 +16,7 @@ import { faSignOutAlt, faUserCircle, fas } from '@fortawesome/free-solid-svg-ico
 import { CommonSharedModule } from './shared/modules/common-shared/common-shared.module';
 import { SharedMaterialModule } from './shared/modules/material/shared-material.module';
 import { ComponentsModule } from './shared/modules/components/components.module';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,16 @@ import { ComponentsModule } from './shared/modules/components/components.module'
     CommonSharedModule,
     SharedMaterialModule,
     ComponentsModule,
+    TranslateModule.forChild({
+      loader: [
+        {
+          provide: TranslateLoader,
+          // useFactory: createTranslateRegisterLoader,
+          // deps: [HttpClient],
+        },
+      ],
+      isolate: true,
+    }),
   ],
   exports: [
     RouterModule,
@@ -44,6 +55,7 @@ import { ComponentsModule } from './shared/modules/components/components.module'
   ],
   providers: [
     DatePipe,
+    TranslateService
   ],
   // entryComponents: [ConfirmDialogComponent]
 })
