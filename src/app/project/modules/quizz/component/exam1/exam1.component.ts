@@ -16,6 +16,7 @@ export class Exam1Component implements OnInit, OnChanges  {
   destroy = new Subject();
   //output
   @Output() formValueChanged = new EventEmitter<FormGroup>();
+
   ngOnInit(): void {
     this.exam1Form(this.examForm?.value);
   }

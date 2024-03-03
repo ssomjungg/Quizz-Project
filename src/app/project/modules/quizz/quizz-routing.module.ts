@@ -9,7 +9,7 @@ const routes: Routes = [
     redirectTo: 'exam'
   },
   {
-    path: 'exam',
+    path: 'exam-dev',
     component: ExamComponent,
     // resolve: {
 

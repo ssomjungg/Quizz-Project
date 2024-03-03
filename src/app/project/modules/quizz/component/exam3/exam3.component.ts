@@ -25,11 +25,7 @@ import { DiffEditorModel } from 'ngx-monaco-editor-v2';
 export class Exam3Component implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
-    private renderer: Renderer2,
-    private elRef: ElementRef,
-    private http: HttpClient
-  ) {
-  }
+  ) { }
   @Input() examForm!: FormGroup;
   form!: FormGroup;
   //output

@@ -1,1 +1,15 @@
-<p>exam3 works!</p>
+<div class="row ms-3 mt-3 mb-3" [formGroup]="form">
+  <div class="row">
+    <div class="col">
+      {{ form.get("no")?.value }}.
+      {{ form.get("title")?.value }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mt-5">
+      <mat-form-field class="w-100" [appearance]="'outline'">
+        <textarea matInput [rows]="3" maxlength="1000" placeholder="Please explain solution here." formControlName="answer"> </textarea>
+      </mat-form-field>
+    </div>
+  </div>
+</div>
