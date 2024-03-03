@@ -1,0 +1,18 @@
+<div class="row ms-3 mt-5 mb-5" [formGroup]="form">
+  <div class="row">
+    <div class="col">
+      {{form.get('no')?.value}}.
+      {{form.get('title')?.value}}
+    </div>
+  </div>
+  <div class="row mt-3 mb-3">
+    <div class="col-4">
+      <img src="{{form.get('markdown')?.value}}" alt="image info" style="width: 600px; height: 600px;">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <ngx-monaco-editor [options]="editorOptions" formControlName="answer"></ngx-monaco-editor>
+    </div>
+  </div>
+</div>

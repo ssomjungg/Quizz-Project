@@ -1,0 +1,20 @@
+<div class="row ms-3 mt-5 mb-5" [formGroup]="form">
+  <div class="row">
+    <div class="col">
+      {{form.get('no')?.value}}.
+      {{form.get('title')?.value}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <mat-form-field
+      class="w-100 mt-3"
+      [appearance]="'outline'">
+        <input
+        matInput
+        placeholder="Please explain solution here."
+        formControlName="answer" />
+    </mat-form-field>
+    </div>
+  </div>
+</div>

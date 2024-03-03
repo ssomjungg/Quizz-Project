@@ -1,0 +1,15 @@
+mat-select.mat-select {
+  &.mat-select-disabled {
+    .mat-select-value {
+      cursor: not-allowed;
+      color: rgba(0, 0, 0, 1);
+    }
+  }
+  font-size: 16px;
+  mat-select-trigger {
+    height: 40px;
+  }
+  .mat-select-arrow-wrapper {
+    transform: translateY(0%);
+  }
+}

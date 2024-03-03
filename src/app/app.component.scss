@@ -1,0 +1,11 @@
+#main-content {
+  padding: 20px;
+  background: aliceblue;
+}
+
+#main-content {
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: calc(100% - 100px);
+  max-height: calc(100% - 100px);
+}

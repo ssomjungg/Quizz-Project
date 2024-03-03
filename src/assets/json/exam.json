@@ -1,0 +1,92 @@
+{
+  "exam": [
+    {
+      "no": 1,
+      "questionType": false,
+      "script": "",
+      "title": "ผลลัพธ์ของสมการด้านล่าง คืออะไร? (อธิบายตามหลักคณิตศาสตร์)",
+      "answer": "",
+      "language": "",
+      "mermaid": "",
+      "code": "\n                var result =  (10 / 5 + 2 * 2 - 1) % 1;\n               ",
+      "markdown": "\n               "
+    },
+    {
+      "no": 2,
+      "questionType": false,
+      "script": "",
+      "title": "หากเราพิมพ์ https://www.sanook.com บน URL จะเกิดอะไรขึ้นบ้างที่ทำให้ Browsers แสดงเว็บ Sanook ขึ้นมา จงอธิบายตามความเข้าใจ",
+      "answer": "",
+      "language": "",
+      "mermaid": "",
+      "code": "\n               ",
+      "markdown": "\n               "
+    },
+    {
+      "no": 3,
+      "questionType": true,
+      "script": "",
+      "title": "สร้าง Code ตาม Class Diagram นี้",
+      "answer": "",
+      "language": "typescript",
+      "mermaid": "classDiagram\n                Animal <|-- Duck\n                Animal <|-- Fish\n                Animal <|-- Zebra\n                Animal : int age\n                Animal : String gender\n                Animal: isMammal()\n                Animal: mate()\n                class Duck{\n                    String beakColor\n                    swim()\n                    quack()\n                }\n                class Fish{\n                    int sizeInFeet\n                    canEat()\n                }\n                class Zebra{\n                    boolean is_wild\n                    run()\n                }",
+      "code": "",
+      "markdown": "##### เขียน Code ด้วย JavaScript,TypeScript,C#,Java หรือ Python ภาษาตามที่คุณสะดวก"
+    },
+    {
+      "no": 4,
+      "questionType": false,
+      "script": "",
+      "title": "ช่วยอธิบายในมุมมองการสร้าง Software ให้สามารถดูแลได้ในระยะยาว",
+      "answer": "",
+      "language": "typescript",
+      "mermaid": "",
+      "code": "",
+      "markdown": "###อธิบายตามความเข้าใจ"
+    },
+    {
+      "no": 5,
+      "questionType": false,
+      "script": "",
+      "title": "คุณเคยอ่านเอกสาร เกี่ยวกับการพัฒนา Software เรื่องอะไรล่าสุด (ระหว่างเรียนหรือหลังจากเรียนก็ได้)",
+      "answer": "",
+      "language": "",
+      "mermaid": "",
+      "code": "",
+      "markdown": "และอธิบายตามความเข้าใจ ที่คุณได้อ่านเรื่องนั้นมาว่ามันเกี่ยวกับอะไร"
+    },
+    {
+      "no": 6,
+      "questionType": true,
+      "script": "",
+      "title": "เขียน Function โปรแกรมจากโครงสร้างตัวอย่าง โดยใช้หลักการของ Linked List ในการหาผลรวมของ Value ในแต่ล่ะ Node.",
+      "answer": "",
+      "language": "typescript",
+      "mermaid": "graph LR;\n            11-->19;\n            19-->32;\n            32-->64;\n            64-->128;\n        ",
+      "code": "const LinkedList = [\n{\n  value: '11',\n  id: 1,\n  next_id: 2\n},          \n.........\n]",
+      "markdown": "##### เขียน Code ด้วย JavaScript,TypeScript,C#,Java หรือ Python ภาษาตามที่คุณสะดวก"
+    },
+    {
+      "no": 7,
+      "questionType": true,
+      "script": "",
+      "title": "เขียนโปรแกรมเพื่อทำงานตาม Flowchart นี้เพื่อหามูลค่าของกำนัลที่ลูกค้าควรจะได้รับ และพนักงานสามารถแจ้ง มูลค่าของ Gift Voucher และ Special Offer ได้ (โดยใช้ หลักการใดหลักการหนึ่ง OOP, Functional, Procedural)",
+      "answer": "",
+      "language": "typescript",
+      "mermaid": "flowchart TD\n    A[Customer] -->|Pay_money as Number| B(Company Staff)\n    B --> C{Calculate Price}\n    C -->|<1000USD| D[Standard]\n    C -->|>=1000<=1200USD| E[Luxury]\n    C -->|>1200USD| F[Emerald]\n    D -->|30USD| H[Give Voucher]\n    E -->|40USD| H[Give Voucher]\n    F -->|50USD| H[Give Voucher]\n    D -->|30USD| G[Special Offer]\n    E -->|40USD| G[Special Offer]\n    F -->|50USD| G[Special Offer]\n    H -->|Give Voucher| I[Result Value]\n    G -->|Special Offer| I[Result Value]\n  ",
+      "code": "",
+      "markdown": "##### เขียน Code ด้วย JavaScript,TypeScript,C#,Java หรือ Python ภาษาตามที่คุณสะดวก"
+    },
+    {
+      "no": 8,
+      "questionType": true,
+      "script": "",
+      "title": "จากรูปตัวอย่างด้านล่างให้เขียน HTML และ CSS ให้เป็นตามรูปตัวอย่างโดยใช้ Flexbox หรือ Grid ในการจัดวาง",
+      "answer": "",
+      "language": "html",
+      "mermaid": "flowchart TD\n\n  ",
+      "code": "",
+      "markdown": "https://i.ibb.co/ck2097n/image.png"
+    }
+  ]
+}

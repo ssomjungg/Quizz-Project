@@ -1,0 +1,77 @@
+<mat-card>
+  <div class="row ms-3 mt-5 mb-5" [formGroup]="form">
+    <div class="col">
+      <bam-label>
+        <span class="title">The exam center for candidate.</span>
+      </bam-label>
+      <bam-label>
+        <span
+          >“You can’t stop the future. You can’t rewind the past.The only way to
+          learn the secret s to press play.”</span
+        >
+      </bam-label>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <bam-label [require]="true">
+          <span>Candidate Name :</span>
+        </bam-label>
+        <mat-form-field
+        class="w-100"
+        [appearance]="'outline'">
+          <input
+          matInput
+          placeholder="Enter tour ID here."
+          formControlName="name" />
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+          (click)="gotoDev(form.get('name')?.value)"
+          mat-raised-button
+          color="primary"
+          class="mb-3">Developer >></button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <button
+        (click)="gotoTest(form.get('name')?.value)"
+          mat-raised-button
+          color="primary">Tester >></button>
+      </div>
+    </div>
+    <div class="row">
+      <bam-label>
+        <span class="font-bold">Download Programmer</span>
+      </bam-label>
+    </div>
+    <div class="row">
+      <bam-label>
+        <span>Exam JS TDD (Junior Developer):</span>
+      </bam-label>
+    </div>
+    <div class="row">
+      <bam-label>
+        <span class="font-bold">Download</span>
+      </bam-label>
+    </div>
+    <div class="row">
+      <bam-label>
+        <span>ClosePackage Lab (Resource for Data Sci):</span>
+      </bam-label>
+    </div>
+    <div class="row">
+      <bam-label>
+        <span>Test Website Lab (Resource for Data Sci):</span>
+      </bam-label>
+    </div>
+    <div class="row">
+      <bam-label>
+        <span class="font-bold">Exam question (Full Stack Developer):</span>
+      </bam-label>
+    </div>
+  </div>
+</mat-card>
